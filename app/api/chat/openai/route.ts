@@ -4,6 +4,7 @@ import { OpenAIStream, StreamingTextResponse } from "ai"
 import { ServerRuntime } from "next"
 import OpenAI from "openai"
 import { ChatCompletionCreateParamsBase } from "openai/resources/chat/completions.mjs"
+import { resources } from "../../resources"
 
 export const runtime: ServerRuntime = "edge"
 
@@ -38,7 +39,42 @@ export async function POST(request: Request) {
 
     const stream = OpenAIStream(response)
 
-    return new StreamingTextResponse(stream)
+    const transformStream = new TransformStream({
+      start() {
+        // Called when the stream starts
+      },
+      transform(chunk, controller) {
+        // Convert Uint8Array chunk to string
+        const textDecoder = new TextDecoder()
+        const decodedChunk = textDecoder.decode(chunk)
+
+        console.log("Decoded chunk:", decodedChunk) // Log the decoded string
+
+        // Modify the string if needed (e.g., append or manipulate)
+        let modifiedString = decodedChunk // Modify the string if required
+
+        // Convert the modified string back to Uint8Array
+        const textEncoder = new TextEncoder()
+        const encodedChunk = textEncoder.encode(modifiedString)
+
+        // Send the modified chunk to the next stage of the stream
+        controller.enqueue(encodedChunk)
+      },
+      flush(controller) {
+        // Called when the stream ends
+
+        const textEncoder = new TextEncoder()
+        const encodedChunk = textEncoder.encode("End of stream")
+
+        controller.enqueue(encodedChunk)
+        controller.terminate()
+      }
+    })
+
+    // Pipe the original stream through the middleware (transform stream)
+    const transformedStream = stream.pipeThrough(transformStream)
+
+    return new StreamingTextResponse(transformedStream)
   } catch (error: any) {
     let errorMessage = error.message || "An unexpected error occurred"
     const errorCode = error.status || 500

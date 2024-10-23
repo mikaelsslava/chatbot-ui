@@ -107,16 +107,16 @@ export const DeleteFolder: FC<DeleteFolderProps> = ({
 
       <DialogContent className="min-w-[550px]">
         <DialogHeader>
-          <DialogTitle>Delete {folder.name}</DialogTitle>
+          <DialogTitle>Dzēst {folder.name}</DialogTitle>
 
           <DialogDescription>
-            Are you sure you want to delete this folder?
+            Vai esi pārliecināts, ka vēlies dzēst šo mapi?
           </DialogDescription>
         </DialogHeader>
 
         <DialogFooter>
           <Button variant="ghost" onClick={() => setShowFolderDialog(false)}>
-            Cancel
+            Atcelt
           </Button>
 
           <Button
@@ -124,7 +124,7 @@ export const DeleteFolder: FC<DeleteFolderProps> = ({
             variant="destructive"
             onClick={handleDeleteFolderAndItems}
           >
-            Delete Folder & Included Items
+            Dzēst Mapi Un Tās Saturu
           </Button>
 
           <Button
@@ -132,7 +132,7 @@ export const DeleteFolder: FC<DeleteFolderProps> = ({
             variant="destructive"
             onClick={handleDeleteFolderOnly}
           >
-            Delete Folder Only
+            Dzēst Tikai Mapi
           </Button>
         </DialogFooter>
       </DialogContent>

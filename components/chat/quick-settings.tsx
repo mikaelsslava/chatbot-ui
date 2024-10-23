@@ -190,51 +190,57 @@ export const QuickSettings: FC<QuickSettingsProps> = ({}) => {
         setSearch("")
       }}
     >
-      <DropdownMenuTrigger asChild className="max-w-[400px]" disabled={loading}>
-        <Button variant="ghost" className="flex space-x-3 text-lg">
-          {selectedPreset && (
-            <ModelIcon
-              provider={modelDetails?.provider || "custom"}
-              width={32}
-              height={32}
-            />
-          )}
-
-          {selectedAssistant &&
-            (selectedAssistantImage ? (
-              <Image
-                className="rounded"
-                src={selectedAssistantImage}
-                alt="Assistant"
-                width={28}
-                height={28}
+      {false && (
+        <DropdownMenuTrigger
+          asChild
+          className="max-w-[400px]"
+          disabled={loading}
+        >
+          <Button variant="ghost" className="flex space-x-3 text-lg">
+            {selectedPreset && (
+              <ModelIcon
+                provider={modelDetails?.provider || "custom"}
+                width={32}
+                height={32}
               />
+            )}
+
+            {selectedAssistant &&
+              (selectedAssistantImage ? (
+                <Image
+                  className="rounded"
+                  src={selectedAssistantImage}
+                  alt="Assistant"
+                  width={28}
+                  height={28}
+                />
+              ) : (
+                <IconRobotFace
+                  className="bg-primary text-secondary border-primary rounded border-DEFAULT p-1"
+                  size={28}
+                />
+              ))}
+
+            {loading ? (
+              <div className="animate-pulse">Loading assistant...</div>
             ) : (
-              <IconRobotFace
-                className="bg-primary text-secondary border-primary rounded border-DEFAULT p-1"
-                size={28}
-              />
-            ))}
+              <>
+                <div className="overflow-hidden text-ellipsis">
+                  {isModified &&
+                    (selectedPreset || selectedAssistant) &&
+                    "Modified "}
 
-          {loading ? (
-            <div className="animate-pulse">Loading assistant...</div>
-          ) : (
-            <>
-              <div className="overflow-hidden text-ellipsis">
-                {isModified &&
-                  (selectedPreset || selectedAssistant) &&
-                  "Modified "}
+                  {selectedPreset?.name ||
+                    selectedAssistant?.name ||
+                    t("Quick Settings")}
+                </div>
 
-                {selectedPreset?.name ||
-                  selectedAssistant?.name ||
-                  t("Quick Settings")}
-              </div>
-
-              <IconChevronDown className="ml-1" />
-            </>
-          )}
-        </Button>
-      </DropdownMenuTrigger>
+                <IconChevronDown className="ml-1" />
+              </>
+            )}
+          </Button>
+        </DropdownMenuTrigger>
+      )}
 
       <DropdownMenuContent
         className="min-w-[300px] max-w-[500px] space-y-4"

@@ -12,6 +12,7 @@ import { CreateModel } from "./items/models/create-model"
 import { CreatePreset } from "./items/presets/create-preset"
 import { CreatePrompt } from "./items/prompts/create-prompt"
 import { CreateTool } from "./items/tools/create-tool"
+import { contentTypeMapNominative } from "../language/config/lv-map"
 
 interface SidebarCreateButtonsProps {
   contentType: ContentType
@@ -41,7 +42,7 @@ export const SidebarCreateButtons: FC<SidebarCreateButtonsProps> = ({
     const createdFolder = await createFolder({
       user_id: profile.user_id,
       workspace_id: selectedWorkspace.id,
-      name: "New Folder",
+      name: "Jauna Mape",
       description: "",
       type: contentType
     })
@@ -95,13 +96,15 @@ export const SidebarCreateButtons: FC<SidebarCreateButtonsProps> = ({
     }
   }
 
+  const contentTypeName = contentTypeMapNominative[contentType]
+
   return (
     <div className="flex w-full space-x-2">
       <Button className="flex h-[36px] grow" onClick={getCreateFunction()}>
         <IconPlus className="mr-1" size={20} />
-        New{" "}
-        {contentType.charAt(0).toUpperCase() +
-          contentType.slice(1, contentType.length - 1)}
+        Jauna{" "}
+        {contentTypeName.charAt(0).toUpperCase() +
+          contentTypeName.slice(1, contentTypeName.length)}
       </Button>
 
       {hasData && (

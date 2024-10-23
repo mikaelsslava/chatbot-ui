@@ -1,6 +1,7 @@
 import { ContentType } from "@/types"
 import { FC } from "react"
 import { Input } from "../ui/input"
+import { contentTypeMapPluralAccusative } from "../language/config/lv-map"
 
 interface SidebarSearchProps {
   contentType: ContentType
@@ -15,7 +16,9 @@ export const SidebarSearch: FC<SidebarSearchProps> = ({
 }) => {
   return (
     <Input
-      placeholder={`Search ${contentType}...`}
+      placeholder={`Meklēt ${
+        contentTypeMapPluralAccusative[contentType] || contentType
+      }...`}
       value={searchTerm}
       onChange={e => setSearchTerm(e.target.value)}
     />

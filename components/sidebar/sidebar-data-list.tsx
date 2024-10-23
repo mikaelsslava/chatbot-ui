@@ -21,6 +21,7 @@ import { ModelItem } from "./items/models/model-item"
 import { PresetItem } from "./items/presets/preset-item"
 import { PromptItem } from "./items/prompts/prompt-item"
 import { ToolItem } from "./items/tools/tool-item"
+import { dateMap } from "../language/config/lv-map"
 
 interface SidebarDataListProps {
   contentType: ContentType
@@ -278,7 +279,15 @@ export const SidebarDataList: FC<SidebarDataListProps> = ({
                       sortedData.length > 0 && (
                         <div key={dateCategory} className="pb-2">
                           <div className="text-muted-foreground mb-1 text-sm font-bold">
-                            {dateCategory}
+                            {
+                              dateMap[
+                                dateCategory as
+                                  | "Today"
+                                  | "Yesterday"
+                                  | "Previous Week"
+                                  | "Older"
+                              ]
+                            }
                           </div>
 
                           <div

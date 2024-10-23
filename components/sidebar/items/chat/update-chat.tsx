@@ -52,22 +52,22 @@ export const UpdateChat: FC<UpdateChatProps> = ({ chat }) => {
 
       <DialogContent onKeyDown={handleKeyDown}>
         <DialogHeader>
-          <DialogTitle>Edit Chat</DialogTitle>
+          <DialogTitle>Pārsaukt saraksti</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-1">
-          <Label>Name</Label>
+          <Label>Nosaukums</Label>
 
           <Input value={name} onChange={e => setName(e.target.value)} />
         </div>
 
         <DialogFooter>
           <Button variant="ghost" onClick={() => setShowChatDialog(false)}>
-            Cancel
+            Atcelt
           </Button>
 
           <Button ref={buttonRef} onClick={handleUpdateChat}>
-            Save
+            Saglabāt
           </Button>
         </DialogFooter>
       </DialogContent>

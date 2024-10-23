@@ -120,20 +120,20 @@ export const SidebarDeleteItem: FC<SidebarDeleteItemProps> = ({
 
       <DialogContent onKeyDown={handleKeyDown}>
         <DialogHeader>
-          <DialogTitle>Delete {contentType.slice(0, -1)}</DialogTitle>
+          <DialogTitle>Dzēst {contentType.slice(0, -1)}</DialogTitle>
 
           <DialogDescription>
-            Are you sure you want to delete {item.name}?
+            Vai esi pārliecināts, ka vēlies dzēst {item.name}?
           </DialogDescription>
         </DialogHeader>
 
         <DialogFooter>
           <Button variant="ghost" onClick={() => setShowDialog(false)}>
-            Cancel
+            Atcelt
           </Button>
 
           <Button ref={buttonRef} variant="destructive" onClick={handleDelete}>
-            Delete
+            Dzēst
           </Button>
         </DialogFooter>
       </DialogContent>
