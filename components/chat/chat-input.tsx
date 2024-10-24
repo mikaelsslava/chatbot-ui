@@ -54,7 +54,8 @@ export const ChatInput: FC<ChatInputProps> = ({}) => {
     chatSettings,
     selectedTools,
     setSelectedTools,
-    assistantImages
+    assistantImages,
+    selectedChat
   } = useContext(ChatbotUIContext)
 
   const {

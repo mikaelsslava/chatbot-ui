@@ -31,7 +31,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        <DropdownMenuLabel className="flex items-center justify-between">
+        {/* <DropdownMenuLabel className="flex items-center justify-between">
           <div className="flex space-x-2">
             <Link
               className="cursor-pointer hover:opacity-50"
@@ -64,12 +64,12 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
               <IconHelpCircle size={24} />
             </Link>
           </div>
-        </DropdownMenuLabel>
+        </DropdownMenuLabel> */}
 
-        <DropdownMenuSeparator />
+        {/* <DropdownMenuSeparator /> */}
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Show Help</div>
+          <div>Sniegt Palīdzību</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
               ⌘
@@ -83,7 +83,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
           </div>
         </DropdownMenuItem>
 
-        <DropdownMenuItem className="flex justify-between">
+        {/* <DropdownMenuItem className="flex justify-between">
           <div>Show Workspaces</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
@@ -96,10 +96,10 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
               ;
             </div>
           </div>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
         <DropdownMenuItem className="flex w-[300px] justify-between">
-          <div>New Chat</div>
+          <div>Jauna Sarakste</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
               ⌘
@@ -114,7 +114,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Focus Chat</div>
+          <div>Fokusēt Saraksti</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
               ⌘
@@ -128,7 +128,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
           </div>
         </DropdownMenuItem>
 
-        <DropdownMenuItem className="flex justify-between">
+        {/* <DropdownMenuItem className="flex justify-between">
           <div>Toggle Files</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
@@ -141,9 +141,9 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
               F
             </div>
           </div>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
-        <DropdownMenuItem className="flex justify-between">
+        {/* <DropdownMenuItem className="flex justify-between">
           <div>Toggle Retrieval</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
@@ -156,9 +156,9 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
               E
             </div>
           </div>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
-        <DropdownMenuItem className="flex justify-between">
+        {/* <DropdownMenuItem className="flex justify-between">
           <div>Open Settings</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
@@ -171,9 +171,9 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
               I
             </div>
           </div>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
-        <DropdownMenuItem className="flex justify-between">
+        {/* <DropdownMenuItem className="flex justify-between">
           <div>Open Quick Settings</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
@@ -186,10 +186,10 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
               P
             </div>
           </div>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
         <DropdownMenuItem className="flex justify-between">
-          <div>Toggle Sidebar</div>
+          <div>Fokusēt Sāna lietotni</div>
           <div className="flex opacity-60">
             <div className="min-w-[30px] rounded border-DEFAULT p-1 text-center">
               ⌘

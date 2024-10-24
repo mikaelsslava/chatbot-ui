@@ -52,22 +52,22 @@ export const UpdateFolder: FC<UpdateFolderProps> = ({ folder }) => {
 
       <DialogContent onKeyDown={handleKeyDown}>
         <DialogHeader>
-          <DialogTitle>Edit Folder</DialogTitle>
+          <DialogTitle>Pārsaukt Mapi</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-1">
-          <Label>Name</Label>
+          <Label>Nosaukums</Label>
 
           <Input value={name} onChange={e => setName(e.target.value)} />
         </div>
 
         <DialogFooter>
           <Button variant="ghost" onClick={() => setShowFolderDialog(false)}>
-            Cancel
+            Atcelt
           </Button>
 
           <Button ref={buttonRef} onClick={handleUpdateFolder}>
-            Save
+            Saglabāt
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -319,7 +319,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
         <div className="grow overflow-auto">
           <SheetHeader>
             <SheetTitle className="flex items-center justify-between space-x-2">
-              <div>User Settings</div>
+              <div>Lietotāja iestatījumi</div>
 
               <Button
                 tabIndex={-1}
@@ -328,21 +328,21 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                 onClick={handleSignOut}
               >
                 <IconLogout className="mr-1" size={20} />
-                Logout
+                Iziet
               </Button>
             </SheetTitle>
           </SheetHeader>
 
           <Tabs defaultValue="profile">
-            <TabsList className="mt-4 grid w-full grid-cols-2">
+            {/* <TabsList className="mt-4 grid w-full grid-cols-2">
               <TabsTrigger value="profile">Profile</TabsTrigger>
               <TabsTrigger value="keys">API Keys</TabsTrigger>
-            </TabsList>
+            </TabsList> */}
 
             <TabsContent className="mt-4 space-y-4" value="profile">
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
-                  <Label>Username</Label>
+                  <Label>Identifikators</Label>
 
                   <div className="text-xs">
                     {username !== profile.username ? (
@@ -357,6 +357,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
 
                 <div className="relative">
                   <Input
+                    disabled
                     className="pr-10"
                     placeholder="Username..."
                     value={username}
@@ -381,13 +382,13 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                   ) : null}
                 </div>
 
-                <LimitDisplay
+                {/* <LimitDisplay
                   used={username.length}
                   limit={PROFILE_USERNAME_MAX}
-                />
+                /> */}
               </div>
 
-              <div className="space-y-1">
+              {/* <div className="space-y-1">
                 <Label>Profile Image</Label>
 
                 <ImagePicker
@@ -398,10 +399,10 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                   onSrcChange={setProfileImageSrc}
                   onImageChange={setProfileImageFile}
                 />
-              </div>
+              </div> */}
 
               <div className="space-y-1">
-                <Label>Chat Display Name</Label>
+                <Label>Lietotājvārds</Label>
 
                 <Input
                   placeholder="Chat display name..."
@@ -411,7 +412,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                 />
               </div>
 
-              <div className="space-y-1">
+              {/* <div className="space-y-1">
                 <Label className="text-sm">
                   What would you like the AI to know about you to provide better
                   responses?
@@ -429,7 +430,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                   used={profileInstructions.length}
                   limit={PROFILE_CONTEXT_MAX}
                 />
-              </div>
+              </div> */}
             </TabsContent>
 
             <TabsContent className="mt-4 space-y-4" value="keys">
@@ -731,7 +732,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
           <div className="flex items-center space-x-1">
             <ThemeSwitcher />
 
-            <WithTooltip
+            {/* <WithTooltip
               display={
                 <div>
                   Download Chatbot UI 1.0 data as JSON. Import coming soon!
@@ -744,16 +745,16 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                   onClick={exportLocalStorageAsJSON}
                 />
               }
-            />
+            /> */}
           </div>
 
           <div className="ml-auto space-x-2">
             <Button variant="ghost" onClick={() => setIsOpen(false)}>
-              Cancel
+              Atcelt
             </Button>
 
             <Button ref={buttonRef} onClick={handleSave}>
-              Save
+              Saglabāt
             </Button>
           </div>
         </div>

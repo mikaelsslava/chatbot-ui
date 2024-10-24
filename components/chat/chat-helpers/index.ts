@@ -196,6 +196,7 @@ export const handleHostedChat = async (
   newAbortController: AbortController,
   newMessageImages: MessageImage[],
   chatImages: MessageImage[],
+  threadId: string,
   setIsGenerating: React.Dispatch<React.SetStateAction<boolean>>,
   setFirstTokenReceived: React.Dispatch<React.SetStateAction<boolean>>,
   setChatMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>,
@@ -224,7 +225,8 @@ export const handleHostedChat = async (
   const requestBody = {
     chatSettings: payload.chatSettings,
     messages: formattedMessages,
-    customModelId: provider === "custom" ? modelData.hostedId : ""
+    customModelId: provider === "custom" ? modelData.hostedId : "",
+    threadId
   }
 
   const response = await fetchChatResponse(
@@ -346,6 +348,23 @@ export const processResponse = async (
   }
 }
 
+export const createNewThread = async () => {
+  try {
+    const response = await fetch("/api/chat/openai/thread", {
+      method: "POST"
+    })
+
+    const { thread } = await response.json()
+
+    console.log("threadId threadId", thread)
+
+    return thread.id
+    return
+  } catch (error) {
+    console.error("error", error)
+  }
+}
+
 export const handleCreateChat = async (
   chatSettings: ChatSettings,
   profile: Tables<"profiles">,
@@ -353,6 +372,7 @@ export const handleCreateChat = async (
   messageContent: string,
   selectedAssistant: Tables<"assistants">,
   newMessageFiles: ChatFile[],
+  thread_id: string,
   setSelectedChat: React.Dispatch<React.SetStateAction<Tables<"chats"> | null>>,
   setChats: React.Dispatch<React.SetStateAction<Tables<"chats">[]>>,
   setChatFiles: React.Dispatch<React.SetStateAction<ChatFile[]>>
@@ -368,7 +388,8 @@ export const handleCreateChat = async (
     name: messageContent.substring(0, 100),
     prompt: chatSettings.prompt,
     temperature: chatSettings.temperature,
-    embeddings_provider: chatSettings.embeddingsProvider
+    embeddings_provider: chatSettings.embeddingsProvider,
+    thread_id
   })
 
   setSelectedChat(createdChat)

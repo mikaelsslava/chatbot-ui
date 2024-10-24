@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS chats (
     model TEXT NOT NULL CHECK (char_length(model) <= 1000),
     name TEXT NOT NULL CHECK (char_length(name) <= 200),
     prompt TEXT NOT NULL CHECK (char_length(prompt) <= 100000),
-    temperature REAL NOT NULL
+    temperature REAL NOT NULL,
+    thread_id TEXT NOT NULL CHECK (char_length(thread_id) <= 100)
 );
 
 -- INDEXES --

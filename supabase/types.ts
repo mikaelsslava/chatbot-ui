@@ -353,7 +353,8 @@ export type Database = {
           temperature: number
           updated_at: string | null
           user_id: string
-          workspace_id: string
+          workspace_id: string,
+          thread_id: string
         }
         Insert: {
           assistant_id?: string | null
@@ -371,7 +372,8 @@ export type Database = {
           temperature: number
           updated_at?: string | null
           user_id: string
-          workspace_id: string
+          workspace_id: string,
+          thread_id: string
         }
         Update: {
           assistant_id?: string | null
@@ -390,6 +392,7 @@ export type Database = {
           updated_at?: string | null
           user_id?: string
           workspace_id?: string
+          thread_id?: string
         }
         Relationships: [
           {

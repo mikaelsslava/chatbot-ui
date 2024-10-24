@@ -14,6 +14,13 @@ export const MessageMarkdown: FC<MessageMarkdownProps> = ({ content }) => {
       className="prose dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 min-w-full space-y-6 break-words"
       remarkPlugins={[remarkGfm, remarkMath]}
       components={{
+        a({ href, children }) {
+          return (
+            <a target="_blank" href={href}>
+              {children}
+            </a>
+          )
+        },
         p({ children }) {
           return <p className="mb-2 last:mb-0">{children}</p>
         },

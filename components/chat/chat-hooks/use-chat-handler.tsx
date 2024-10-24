@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation"
 import { useContext, useEffect, useRef } from "react"
 import { LLM_LIST } from "../../../lib/models/llm/llm-list"
 import {
+  createNewThread,
   createTempMessages,
   handleCreateChat,
   handleCreateMessages,
@@ -205,6 +206,8 @@ export const useChatHandler = () => {
       const newAbortController = new AbortController()
       setAbortController(newAbortController)
 
+      const thread_id = selectedChat?.thread_id || (await createNewThread())
+
       const modelData = [
         ...models.map(model => ({
           modelId: model.model_id as LLMID,
@@ -330,6 +333,7 @@ export const useChatHandler = () => {
             newAbortController,
             newMessageImages,
             chatImages,
+            thread_id,
             setIsGenerating,
             setFirstTokenReceived,
             setChatMessages,
@@ -346,6 +350,7 @@ export const useChatHandler = () => {
           messageContent,
           selectedAssistant!,
           newMessageFiles,
+          thread_id,
           setSelectedChat,
           setChats,
           setChatFiles

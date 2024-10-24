@@ -62,7 +62,7 @@ export const MessageActions: FC<MessageActionsProps> = ({
         />
       )} */}
 
-      {!isAssistant && isHovering && (
+      {/* {!isAssistant && isHovering && (
         <WithTooltip
           delayDuration={1000}
           side="bottom"
@@ -75,7 +75,7 @@ export const MessageActions: FC<MessageActionsProps> = ({
             />
           }
         />
-      )}
+      )} */}
 
       {(isHovering || isLast) && (
         <WithTooltip
@@ -96,7 +96,7 @@ export const MessageActions: FC<MessageActionsProps> = ({
         />
       )}
 
-      {isLast && (
+      {/* {isLast && (
         <WithTooltip
           delayDuration={1000}
           side="bottom"
@@ -109,7 +109,7 @@ export const MessageActions: FC<MessageActionsProps> = ({
             />
           }
         />
-      )}
+      )} */}
 
       {/* {1 > 0 && isAssistant && <MessageReplies />} */}
     </div>
