@@ -33,38 +33,39 @@ export const SidebarItem: FC<SidebarItemProps> = ({
 
   const [isHovering, setIsHovering] = useState(false)
 
-  const actionMap = {
-    chats: async (item: any) => {},
-    presets: async (item: any) => {},
-    prompts: async (item: any) => {},
-    files: async (item: any) => {},
-    collections: async (item: any) => {},
-    assistants: async (assistant: Tables<"assistants">) => {
-      if (!selectedWorkspace) return
+  // const actionMap = {
+  //   chats: async (item: any) => {},
+  //   presets: async (item: any) => {},
+  //   prompts: async (item: any) => {},
+  //   files: async (item: any) => {},
+  //   collections: async (item: any) => {},
+  //   assistants: async (assistant: Tables<"assistants">) => {
+  //     if (!selectedWorkspace) return
 
-      const createdChat = await createChat({
-        user_id: assistant.user_id,
-        workspace_id: selectedWorkspace.id,
-        assistant_id: assistant.id,
-        context_length: assistant.context_length,
-        include_profile_context: assistant.include_profile_context,
-        include_workspace_instructions:
-          assistant.include_workspace_instructions,
-        model: assistant.model,
-        name: `Chat with ${assistant.name}`,
-        prompt: assistant.prompt,
-        temperature: assistant.temperature,
-        embeddings_provider: assistant.embeddings_provider
-      })
+  //     const createdChat = await createChat({
+  //       user_id: assistant.user_id,
+  //       workspace_id: selectedWorkspace.id,
+  //       assistant_id: assistant.id,
+  //       context_length: assistant.context_length,
+  //       include_profile_context: assistant.include_profile_context,
+  //       include_workspace_instructions:
+  //         assistant.include_workspace_instructions,
+  //       model: assistant.model,
+  //       name: `Chat with ${assistant.name}`,
+  //       prompt: assistant.prompt,
+  //       temperature: assistant.temperature,
+  //       embeddings_provider: assistant.embeddings_provider,
+  //       thread_id: selectedChat?.thread_id
+  //     })
 
-      setChats(prevState => [createdChat, ...prevState])
-      setSelectedAssistant(assistant)
+  //     setChats(prevState => [createdChat, ...prevState])
+  //     setSelectedAssistant(assistant)
 
-      return router.push(`/${selectedWorkspace.id}/chat/${createdChat.id}`)
-    },
-    tools: async (item: any) => {},
-    models: async (item: any) => {}
-  }
+  //     return router.push(`/${selectedWorkspace.id}/chat/${createdChat.id}`)
+  //   },
+  //   tools: async (item: any) => {},
+  //   models: async (item: any) => {}
+  // }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
