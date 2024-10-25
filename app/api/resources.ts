@@ -153,5 +153,7 @@ export const resources = {
     "https://likumi.lv/ta/id/58057-likums-par-budzetu-un-finansu-vadibu",
   "Krimināllikums.pdf": "https://likumi.lv/ta/id/88966-kriminallikums",
   "Par iedzīvotāju ienākuma nodokli.pdf":
-    "https://likumi.lv/ta/id/56880-par-iedzivotaju-ienakuma-nodokli"
+    "https://likumi.lv/ta/id/56880-par-iedzivotaju-ienakuma-nodokli",
+  "Makšķerēšanas, vēžošanas un zemūdens medību noteikumi.pdf":
+    "https://likumi.lv/ta/id/279205-makskeresanas-vezosanas-un-zemudens-medibu-noteikumi"
 }
