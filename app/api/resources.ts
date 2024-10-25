@@ -151,5 +151,7 @@ export const resources = {
     "https://likumi.lv/ta/id/26020-darba-aizsardzibas-likums",
   "Likums par budžetu un finanšu vadību.pdf":
     "https://likumi.lv/ta/id/58057-likums-par-budzetu-un-finansu-vadibu",
-  "Krimināllikums.pdf": "https://likumi.lv/ta/id/88966-kriminallikums"
+  "Krimināllikums.pdf": "https://likumi.lv/ta/id/88966-kriminallikums",
+  "Par iedzīvotāju ienākuma nodokli.pdf":
+    "https://likumi.lv/ta/id/56880-par-iedzivotaju-ienakuma-nodokli"
 }
