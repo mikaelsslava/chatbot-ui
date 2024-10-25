@@ -132,14 +132,11 @@ export default async function Login({
     })
 
     if (error) {
-      console.error(error)
-      return redirect(`/login?message=${error.message}`)
+      return redirect(`/login?message=${encodeURIComponent(error.message)}`)
     }
 
-    return redirect("/setup")
-
     // USE IF YOU WANT TO SEND EMAIL VERIFICATION, ALSO CHANGE TOML FILE
-    // return redirect("/login?message=Check email to continue sign in process")
+    return redirect("/login?message=Check email to continue sign in process")
   }
 
   const handleResetPassword = async (formData: FormData) => {
@@ -160,6 +157,8 @@ export default async function Login({
 
     return redirect("/login?message=Check email to reset password")
   }
+
+  console.log("searchParams?.message", searchParams?.message)
 
   return (
     <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">

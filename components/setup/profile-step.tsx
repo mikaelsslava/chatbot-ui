@@ -91,13 +91,13 @@ export const ProfileStep: FC<ProfileStepProps> = ({
     <>
       <div className="space-y-1">
         <div className="flex items-center space-x-2">
-          <Label>Username</Label>
+          <Label>Lietotāja Identifikators</Label>
 
           <div className="text-xs">
             {usernameAvailable ? (
-              <div className="text-green-500">AVAILABLE</div>
+              <div className="text-green-500">Pieejams</div>
             ) : (
-              <div className="text-red-500">UNAVAILABLE</div>
+              <div className="text-red-500">Aizņemts</div>
             )}
           </div>
         </div>
@@ -105,7 +105,7 @@ export const ProfileStep: FC<ProfileStepProps> = ({
         <div className="relative">
           <Input
             className="pr-10"
-            placeholder="username"
+            placeholder="Identifikators"
             value={username}
             onChange={e => {
               onUsernameChange(e.target.value)
@@ -130,10 +130,10 @@ export const ProfileStep: FC<ProfileStepProps> = ({
       </div>
 
       <div className="space-y-1">
-        <Label>Chat Display Name</Label>
+        <Label>Lietotājvārds</Label>
 
         <Input
-          placeholder="Your Name"
+          placeholder="Tavs vārds"
           value={displayName}
           onChange={e => onDisplayNameChange(e.target.value)}
           maxLength={PROFILE_DISPLAY_NAME_MAX}
